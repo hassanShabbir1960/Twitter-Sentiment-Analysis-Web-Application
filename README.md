@@ -17,7 +17,7 @@ To use this application, follow the steps below:
 1. Run the application using `python app.py` and navigate to `http://localhost:5000` in your web browser.
 2. Enter a topic in the first textbox, the number of tweets to scrape in the second textbox, and the date range in the third and fourth textboxes.
 3. Click the 'Submit' button to initiate the sentiment analysis.
-4. The results of the analysis will be displayed on the same page in a table format, containing the probabilities of each emotion and sentiment class for the tweets.
+4. The results of the analysis will be displayed in a csv, containing the probabilities of each emotion and sentiment class for the tweets.
 
 ## Training the Model
 
