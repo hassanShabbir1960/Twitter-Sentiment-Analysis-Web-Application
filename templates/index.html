@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Tweets analysis </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Sentiment and emotion detector</a>
+      </div>
+    </div>
+  </nav>
+  <!-- Main container -->
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <!-- Instructions section -->
+        <h1><u>Instructions to run the program</u></h1>
+        <br>
+        <br>
+        <h4>The program expects to take a hashtag or relevant sentence, the number of tweets to retrieve, and the
+          starting and ending dates for gathering relevant tweets. The neural network model will classify the tweets and
+          store the results in files. Follow these steps to run the program:</h4>
+        <ol>
+          <li>
+            Type in the relevant hashtag or sentence.
+          </li>
+
+          <li>
+            Choose the date range of the tweets.
+          </li>
+
+          <li>
+            Enter the number of tweets to analyze, then click on the classify button below to display a message.
+          </li>
+        </ol>
+
+        <hr>
+
+        <!-- Form section -->
+        <center>
+          <form action="/" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <div class="row">
+                <!-- Relevant hashtag field -->
+                <div class="col-md-3">
+                  <label class="control-label">Relevant hashtag</label>
+                  <input placeholder="#HASHTAG" type="text" name="a" class="form-control" id="htag">
+                </div>
+
+                <!-- Tweet count field -->
+                <div class="col-md-3">
+                  <label class="control-label">Tweets count</label>
+                  <input placeholder="Tweets count" type="text" name="b" class="form-control" id="tcount">
+                </div>
+
+                <!-- Starting date field -->
+                <div class="col-md-3">
+                  <label class="control-label">Starting date</label>
+                  <input class="form-control" type="date" id="SD" name="c" type="text">
+                </div>
+
+                <!-- Ending date field -->
+                <div class="col-md-3">
+                  <label class="control-label">Ending date</label>
+                  <input class="form-control" type="date" id="ED" name="d" type="text">
+                </div>
+
+                <div class="col-sm-5">
+                </div>
+              </div>
+            </div>
+            </br></br>
+            <center>
+              <!-- Analyze button -->
+              <button onclick="display()" type="submit" id="pop" class="btn btn-primary">Analyze the tweets</button>
+            </center>
+          </form>
+          <!-- JavaScript to retrieve form values -->
+          <script>
+            function display() {
+              var w1 = document.getElementById("htag").value + ","; // Get the relevant hashtag value
+              var w2 = document.getElementById("tcount").value; // Get the tweet count value
+              w5 = w2.toString() + ","; // Convert the tweet count to a string and append a comma
+              var w3 = document.getElementById("SD").value + ","; // Get the starting date value and append a comma
+              var w4 = document.getElementById("ED").value + ","; // Get the ending date value and append a comma
+              return (w1 + w5 + w3 + w4); // Return the values as a string with commas between them
+            }
+          </script>
+
+          <!-- Display the prediction results -->
+          <center>
+            <h5>{{ prediction_text }}<h5>
+          </center>
+        </center>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
